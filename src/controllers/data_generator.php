@@ -36,5 +36,3 @@ function getDayTemplateByOdds($regularRate, $extraRate, $lazyRate){
     return $lazyDayTemplate;
   }
 }
-
-print_r(getDayTemplateByOdds(5, 90, 5));
