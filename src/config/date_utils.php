@@ -21,10 +21,10 @@ function getNextDay($date){
   return $inputDate;
 }
 
-function sumInterval($interval1, $interval2){
+function sumIntervals($interval1, $interval2){
   $date = new DateTime('00:00:00');
-  $date->add($interval1);
-  $date->add($interval2);
+  $interval1 && $date->add($interval1);
+  $interval2 && $date->add($interval2);
   return (new DateTime('00:00:00'))->diff($date);
 }
 
