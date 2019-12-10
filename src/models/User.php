@@ -14,4 +14,11 @@ class User extends Model{
   public static function getActiveUsersCount(){
     return static::getCount(['raw' => 'end_date IS NULL']);
   }
+
+  public function insert(){
+    !$this->end_date && $this->end_date = null;
+    $this->is_admin = $this->is_admin ? 1 : 0;
+
+    return parent::insert();
+  }
 }
