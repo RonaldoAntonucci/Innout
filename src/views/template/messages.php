@@ -14,7 +14,6 @@ if ( isset( $_SESSION['message'] ) ) {
         $errors = $exception->getErrors();
     }
 }
-
 $alertType = '';
 
 if ( $message['type'] === 'error' ) {
