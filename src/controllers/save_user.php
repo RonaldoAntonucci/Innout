@@ -1,6 +1,6 @@
 <?php
 session_start();
-requireValidSession();
+requireValidSession(true);
 
 $exception = null;
 $userData = [];
@@ -24,7 +24,12 @@ if(count($_POST) === 0 && isset($_GET['update'])){
     
     $_POST=[];
   }catch(Exception $e){
-    $exception = $e;
+    $msg = $e->getMessage();
+    if(stripos($msg, "key 'email'")){
+      addErrorMsg('O email já existe.');
+    }else{
+      $exception = $e;
+    }
   } finally{
     $userData = $_POST;
   }
